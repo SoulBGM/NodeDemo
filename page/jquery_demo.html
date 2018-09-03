@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>菜鸟教程(runoob.com)</title>
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script>
+			$(function() {
+				$.ajax({
+					type: "get",
+					url: "http://127.0.0.1:8080/demo/queryAllGrade",
+					success: function(data) {
+						for(var i = 0; i < data.length;)
+							for(var i = 0; i < data.length; i++) {
+								$("#table").append("<tr><td>" + data[i].gradeId + "</td><td>" + data[i].gradeName + "</td></tr>")
+							}
+					}
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<table id="table">
+			<tr>
+				<td>id</td>
+				<td>年级名称</td>
+			</tr>
+		</table>
+	</body>
+
+</html>
